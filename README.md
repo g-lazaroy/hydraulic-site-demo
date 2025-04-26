@@ -15,7 +15,7 @@
 1. Κατέβασε το repository.
 2. Άνοιξε το `index.html` σε έναν browser.
 
-## Live Demo
+## Live Site
 vougioukas-solutions.gr
 
 ## Σημείωση
