@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vougioukas Solutions - Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="background.jpg" as="image">
+</head>
+<body id="services-page">
+    <header>
+        <h1>Vougioukas Solutions</h1>
+        <nav>
+            <a href="./index.html" data-i18n="nav-home">Αρχική</a>
+            <a href="./about-us.html" data-i18n="nav-about">Σχετικά με Εμάς</a>
+            <a href="./our-work.html" data-i18n="nav-our-work">Η Δουλειά Μας</a>
+            <a href="./services.html" data-i18n="nav-services">Υπηρεσίες</a>
+            <a href="./contact.html" data-i18n="nav-contact">Επικοινωνία</a>
+            
+        </nav>
+        <div class="language-flags">
+            <img src="gr-flag.png" alt="Greek" data-lang="el" title="Greek">
+            <img src="en-flag.png" alt="English" data-lang="en" title="English">
+        </div>
+    </header>
+
+    <main>
+        <h2 data-i18n="services-title">Υπηρεσίες</h2>
+        <ul class="services-list">
+            <li>
+                <h3 data-i18n="service1-title">Ανακαινίσεις</h3>
+                <p data-i18n="service1-desc">Ολοκληρωμένες λύσεις για την ανακαίνιση του σπιτιού ή της επιχείρησής σας.</p>
+            </li>
+            <li>
+                <h3 data-i18n="service2-title">Ύδρευση</h3>
+                <p data-i18n="service2-desc">Εγκατάσταση και επισκευή συστημάτων ύδρευσης με αξιοπιστία.</p>
+            </li>
+            <li>
+                <h3 data-i18n="service3-title">Θέρμανση</h3>
+                <p data-i18n="service3-desc">Σύγχρονες λύσεις θέρμανσης για μέγιστη άνεση και απόδοση.</p>
+            </li>
+            <li>
+                <h3 data-i18n="service4-title">Αποχέτευση</h3>
+                <p data-i18n="service4-desc">Αποτελεσματική διαχείριση και συντήρηση συστημάτων αποχέτευσης.</p>
+            </li>
+            <li>
+                <h3 data-i18n="service5-title">Φυσικό Αέριο</h3>
+                <p data-i18n="service5-desc">Εγκατάσταση και υποστήριξη συστημάτων φυσικού αερίου.</p>
+            </li>
+            <li>
+                <h3 data-i18n="service6-title">Ηλιακά Συστήματα</h3>
+                <p data-i18n="service6-desc">Οικολογικές και αποδοτικές λύσεις ηλιακής ενέργειας.</p>
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        const translations = {
+            en: {
+                "nav-home": "Home",
+                "nav-about": "About Us",
+                "nav-our-work": "Our Work",
+                "nav-services": "Services",
+                "nav-contact": "Contact Us",
+                
+                "services-title": "Services",
+                "service1-title": "Renovations",
+                "service1-desc": "Comprehensive solutions for renovating your home or business.",
+                "service2-title": "Plumbing",
+                "service2-desc": "Reliable installation and repair of plumbing systems.",
+                "service3-title": "Heating",
+                "service3-desc": "Modern heating solutions for maximum comfort and efficiency.",
+                "service4-title": "Drainage",
+                "service4-desc": "Effective management and maintenance of drainage systems.",
+                "service5-title": "Natural Gas",
+                "service5-desc": "Installation and support for natural gas systems.",
+                "service6-title": "Solar Systems",
+                "service6-desc": "Eco-friendly and efficient solar energy solutions."
+            },
+            el: {
+                "nav-home": "Αρχική",
+                "nav-about": "Σχετικά με Εμάς",
+                "nav-our-work": "Η Δουλειά Μας",
+                "nav-services": "Υπηρεσίες",
+                "nav-contact": "Επικοινωνία",
+                
+                "services-title": "Υπηρεσίες",
+                "service1-title": "Ανακαινίσεις",
+                "service1-desc": "Ολοκληρωμένες λύσεις για την ανακαίνιση του σπιτιού ή της επιχείρησής σας.",
+                "service2-title": "Ύδρευση",
+                "service2-desc": "Εγκατάσταση και επισκευή συστημάτων ύδρευσης με αξιοπιστία.",
+                "service3-title": "Θέρμανση",
+                "service3-desc": "Σύγχρονες λύσεις θέρμανσης για μέγιστη άνεση και απόδοση.",
+                "service4-title": "Αποχέτευση",
+                "service4-desc": "Αποτελεσματική διαχείριση και συντήρηση συστημάτων αποχέτευσης.",
+                "service5-title": "Φυσικό Αέριο",
+                "service5-desc": "Εγκατάσταση και υποστήριξη συστημάτων φυσικού αερίου.",
+                "service6-title": "Ηλιακά Συστήματα",
+                "service6-desc": "Οικολογικές και αποδοτικές λύσεις ηλιακής ενέργειας."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let savedLang = localStorage.getItem('language');
+            if (!savedLang) {
+                savedLang = 'el';
+                localStorage.setItem('language', 'el');
+            }
+            setLanguage(savedLang);
+
+            const flags = document.querySelectorAll('.language-flags img');
+            flags.forEach(flag => {
+                flag.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
