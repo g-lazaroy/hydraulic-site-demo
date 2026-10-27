@@ -40,6 +40,7 @@
         body {
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* --- Header & Navigation --- */
@@ -48,7 +49,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(18, 22, 31, 0.95);
+            background: rgba(18, 22, 31, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -57,22 +58,26 @@
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
-            height: 76px;
+            padding: 0 16px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 8px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 5px;
             text-decoration: none;
             color: var(--white);
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: clamp(0.88rem, 3.8vw, 1.25rem);
             letter-spacing: -0.5px;
+            white-space: nowrap;
+            flex-shrink: 1;
+            min-width: 0;
         }
 
         .brand span {
@@ -94,6 +99,7 @@
             transition: var(--transition);
             padding: 6px 0;
             position: relative;
+            cursor: pointer;
         }
 
         .nav-links a::after {
@@ -118,14 +124,15 @@
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 10px;
+            flex-shrink: 0;
         }
 
         .nav-cta {
             background: var(--primary);
             color: var(--white);
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 9px 16px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -133,6 +140,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .nav-cta:hover {
@@ -143,15 +151,15 @@
         .language-flags {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.08);
-            padding: 6px 10px;
-            border-radius: 8px;
+            padding: 5px 8px;
+            border-radius: 6px;
         }
 
         .language-flags img {
-            width: 22px;
-            height: 15px;
+            width: 20px;
+            height: 14px;
             object-fit: cover;
             cursor: pointer;
             border-radius: 2px;
@@ -168,16 +176,37 @@
         .hamburger {
             display: none;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 5px;
             cursor: pointer;
-            padding: 8px;
+            width: 38px;
+            height: 38px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            padding: 0;
         }
 
         .hamburger span {
-            width: 25px;
+            display: block;
+            width: 20px;
             height: 2px;
             background: var(--white);
+            border-radius: 2px;
             transition: var(--transition);
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         /* --- Hero Section --- */
@@ -188,8 +217,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 24px 80px;
-            background: linear-gradient(135deg, rgba(18, 22, 31, 0.88) 0%, rgba(18, 22, 31, 0.78) 100%), url('background.jpg') center/cover no-repeat fixed;
+            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, rgba(18, 22, 31, 0.88) 0%, rgba(18, 22, 31, 0.78) 100%), url('background.jpg') center/cover no-repeat;
             color: var(--white);
         }
 
@@ -199,7 +228,7 @@
         }
 
         .hero-logo {
-            width: 190px;
+            width: 180px;
             height: auto;
             border-radius: 16px;
             margin-bottom: 24px;
@@ -214,7 +243,7 @@
             border: 1px solid rgba(255, 107, 0, 0.3);
             padding: 6px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -222,7 +251,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2rem, 5vw, 3.8rem);
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 20px;
@@ -230,7 +259,7 @@
         }
 
         .hero p {
-            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: #d1d5db;
             max-width: 650px;
             margin: 0 auto 36px;
@@ -276,6 +305,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: var(--transition);
             backdrop-filter: blur(5px);
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -285,7 +315,7 @@
 
         /* --- Section Common Styles --- */
         section {
-            padding: 96px 24px;
+            padding: 90px 20px;
         }
 
         .container {
@@ -296,7 +326,7 @@
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 60px;
+            margin: 0 auto 56px;
         }
 
         .section-tag {
@@ -323,18 +353,16 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
         }
 
         .service-card {
             background: var(--bg-light);
-            padding: 36px 30px;
+            padding: 34px 28px;
             border-radius: var(--radius);
             border: 1px solid #e5e7eb;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
         .service-card:hover {
@@ -384,7 +412,7 @@
         }
 
         .about-text-container p {
-            font-size: 1.12rem;
+            font-size: 1.1rem;
             color: #d1d5db;
             line-height: 1.9;
         }
@@ -423,7 +451,7 @@
 
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
             gap: 20px;
         }
 
@@ -457,7 +485,7 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 20px;
         }
 
         .lightbox.active {
@@ -465,7 +493,7 @@
         }
 
         .lightbox img {
-            max-width: 90%;
+            max-width: 92%;
             max-height: 88vh;
             border-radius: 8px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
@@ -473,8 +501,8 @@
 
         .lightbox-close {
             position: absolute;
-            top: 24px;
-            right: 32px;
+            top: 20px;
+            right: 28px;
             color: var(--white);
             font-size: 2.5rem;
             cursor: pointer;
@@ -488,7 +516,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 24px;
         }
 
@@ -530,7 +558,7 @@
             background: var(--dark);
             color: #9ca3af;
             text-align: center;
-            padding: 40px 24px;
+            padding: 40px 20px;
             font-size: 0.9rem;
         }
 
@@ -559,10 +587,10 @@
         @media (max-width: 960px) {
             .nav-links {
                 position: fixed;
-                top: 76px;
+                top: 70px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 76px);
+                height: calc(100vh - 70px);
                 background: var(--dark);
                 flex-direction: column;
                 justify-content: center;
@@ -602,15 +630,15 @@
     <!-- Header -->
     <header>
         <div class="nav-container">
-            <a href="#home" class="brand">VOUGIOUKAS <span>SOLUTIONS</span></a>
+            <a href="#home" class="brand nav-scroll">VOUGIOUKAS <span>SOLUTIONS</span></a>
             
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home" data-i18n="nav-home">Αρχική</a></li>
-                    <li><a href="#services" data-i18n="nav-services">Υπηρεσίες</a></li>
-                    <li><a href="#about" data-i18n="nav-about">Σχετικά με Εμάς</a></li>
-                    <li><a href="#work" data-i18n="nav-our-work">Η Δουλειά Μας</a></li>
-                    <li><a href="#contact" data-i18n="nav-contact">Επικοινωνία</a></li>
+                    <li><a href="#home" class="nav-scroll" data-i18n="nav-home">Αρχική</a></li>
+                    <li><a href="#services" class="nav-scroll" data-i18n="nav-services">Υπηρεσίες</a></li>
+                    <li><a href="#about" class="nav-scroll" data-i18n="nav-about">Σχετικά με Εμάς</a></li>
+                    <li><a href="#work" class="nav-scroll" data-i18n="nav-our-work">Η Δουλειά Μας</a></li>
+                    <li><a href="#contact" class="nav-scroll" data-i18n="nav-contact">Επικοινωνία</a></li>
                 </ul>
             </nav>
 
@@ -623,11 +651,11 @@
                     <img src="gr-flag.png" alt="Ελληνικά" data-lang="el" title="Ελληνικά" class="active-lang">
                     <img src="en-flag.png" alt="English" data-lang="en" title="English">
                 </div>
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </div>
     </header>
@@ -645,7 +673,7 @@
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span data-i18n="hero-call">Καλέστε Τώρα</span>
                 </a>
-                <a href="#work" class="btn-secondary" data-i18n="hero-work-btn">Δείτε τα Έργα μας</a>
+                <a href="#work" class="btn-secondary nav-scroll" data-i18n="hero-work-btn">Δείτε τα Έργα μας</a>
             </div>
         </div>
     </section>
@@ -809,6 +837,15 @@
 
     <!-- Scripts -->
     <script>
+        // Καθαρισμός hash από το URL και επαναφορά στην κορυφή κατά το άνοιγμα
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
+        }
+        window.scrollTo(0, 0);
+
         const translations = {
             el: {
                 "nav-home": "Αρχική",
@@ -918,14 +955,26 @@
                 });
             });
 
-            // Mobile Menu
+            // Mobile Menu & Smooth Scroll χωρίς προσθήκη #hash στο URL
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
+
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
+                hamburger.classList.toggle('open');
             });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => navLinks.classList.remove('active'));
+
+            document.querySelectorAll('.nav-scroll').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('open');
+                });
             });
 
             // Portfolio Filter
