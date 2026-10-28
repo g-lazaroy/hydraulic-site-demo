@@ -585,6 +585,14 @@
 
         /* --- Responsive Styles --- */
         @media (max-width: 960px) {
+            .nav-container {
+                padding: 0 14px;
+            }
+
+            .brand {
+                font-size: 1.05rem;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -619,8 +627,54 @@
             body {
                 padding-bottom: 54px;
             }
+            
             .mobile-call-bar {
                 display: flex;
+            }
+
+            /* Responsive Hero για κινητά */
+            .hero {
+                background: linear-gradient(135deg, rgba(18, 22, 31, 0.78) 0%, rgba(18, 22, 31, 0.65) 100%), 
+                            url('background.jpg') left center / cover no-repeat;
+                min-height: 85vh;
+                padding: 95px 16px 50px;
+            }
+
+            .hero-logo {
+                width: 135px;
+                margin-bottom: 16px;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 5px 12px;
+                margin-bottom: 14px;
+            }
+
+            .hero h1 {
+                font-size: 1.85rem;
+                margin-bottom: 14px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+                line-height: 1.5;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 12px 24px;
+                font-size: 0.92rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 0.92rem;
+                letter-spacing: -0.3px;
+            }
+            .header-actions {
+                gap: 8px;
             }
         }
     </style>
@@ -837,7 +891,7 @@
 
     <!-- Scripts -->
     <script>
-        // Καθαρισμός hash από το URL και επαναφορά στην κορυφή κατά το άνοιγμα
+        // Αποφυγή επαναφοράς scroll position από cache/Messenger
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -955,7 +1009,7 @@
                 });
             });
 
-            // Mobile Menu & Smooth Scroll χωρίς προσθήκη #hash στο URL
+            // Mobile Menu & Smooth Scroll χωρίς hash
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
 
